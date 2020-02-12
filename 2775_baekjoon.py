@@ -36,7 +36,7 @@ for j in range(T):
     k = int(input())
     n = int(input())
     print(how_many(k, n))
-# 시간초과 오답. 재귀로 풀어서 그런듯.
+# 시간초과 오답. 재귀로 풀어서 그런듯. + 반복문과 재귀를 같이쓰는 짓은 절대 하지 말것
 
 # 두번째답
 T = int(input())
