@@ -14,3 +14,12 @@ def solution(s):
     return ''.join(s)
 
 # join, sort, reverse,index, zip 등의 내장 함수 용법에 익숙해질 것
+
+# 다른 사람 답
+
+
+def solutions(s):
+    return ''.join(sorted(s, reverse=True))
+
+## sorted(list, reverse= True or False)
+# 순서포함해서 한번에 설정 가능한 내장함수.
