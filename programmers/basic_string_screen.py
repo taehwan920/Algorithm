@@ -17,3 +17,11 @@ def solution(s):
                 answer = False
                 break
     return answer
+# 숫자형만 들어있는지 확인하는 내장함수는 list.isdigit()임
+
+# 이게 답
+
+
+def alpha_string46(s):
+    return s.isdigit() and len(s) in (4, 6)
+# len() in (4, 6)은 len()의 값이 4, 6 튜플 안에 포함되어 있는가 체크하는것;
