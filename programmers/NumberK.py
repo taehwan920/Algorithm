@@ -31,3 +31,14 @@ def solution(array, commands):
 
 def solutions(array, commands):
     return list(map(lambda x: sorted(array[x[0]-1:x[1]])[x[2]-1], commands))
+# lambda함수를 이용..
+
+# 혹은 조금 간단한건 이거
+
+
+def solutiontwo(array, commands):
+    answer = []
+    for command in commands:
+        i, j, k = command  # 이게 중요
+        answer.append(list(sorted(array[i-1:j]))[k-1])
+    return answer
