@@ -25,3 +25,9 @@ def solution(array, commands):
     return answer
 
 # 리스트의 성질을 제대로 이해하고있지 못해서 엄청 헤맸음.
+
+# 다른사람의 풀이
+
+
+def solutions(array, commands):
+    return list(map(lambda x: sorted(array[x[0]-1:x[1]])[x[2]-1], commands))
