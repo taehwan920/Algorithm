@@ -23,7 +23,7 @@ def solution(arr, divisor):
 
 
 # 다른사람의 풀이
-def solution(arr, divisor): return sorted(
+def solutionother(arr, divisor): return sorted(
     [n for n in arr if n % divisor == 0]) or [-1]
 # [n for n in arr if n%divisor == 0] n%divior==0인 arr의 요소를 리스트로 만드는 함수.
 # sorted로 굳이 줄을 바꾸지 않고 정렬했다.
