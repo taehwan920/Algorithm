@@ -31,3 +31,5 @@ def solution(heights):
                 answer.append(j+1)
                 break
     return answer
+
+# 이게 왜 스택, 큐 문제인가? -> 탑의 정보를 뒤에서부터 가져오고 그것보다 앞의 탑의 정보들을 가져와야 하기때문..
