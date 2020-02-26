@@ -43,3 +43,19 @@ def examine(s1, s2):  # 두 지도의 문자열을 대조하는 함수
         elif s1[i] == '0' and s2[i] == '0':
             ex_arr.append(' ')
     return ''.join(ex_arr)
+
+
+# 다른사람의 풀이
+
+def secret_map(n, arr1, arr2):
+    answer = []
+    for i, j in zip(arr1, arr2):  # zip을 사용해 arr1, arr2를 한꺼번에 활용
+        # bin을 쓰면 그대로 이진수로 활용할수 있다.. 이상한 문자가 붙어있길래 안썼는데 슬라이싱으로 이상한 문자를 떼어버림. 그뒤 문자열로 변환
+        a12 = str(bin(i | j)[2:])
+        # rjust(n)은 해당 문자열을 n글자 개수로 만들기 위해 글자를 오른쪽으로 밀어버리고 왼쪽에 부족한  글자수만큼 공백을 추가해줌. 반대 함수인 ljust도 있음.
+        a12 = a12.rjust(n, '0')
+        # replace(찾을값, 바꿀값, (바꿀횟수))를 활용하여 1을 샵으로, 0을 공백으로 바꿔줌.
+        a12 = a12.replace('1', '#')
+        a12 = a12.replace('0', ' ')
+        answer.append(a12)
+    return answer
