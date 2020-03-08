@@ -26,6 +26,16 @@ def solution(array, commands):
 
 # 리스트의 성질을 제대로 이해하고있지 못해서 엄청 헤맸음.
 
+
+def solution_again(array, commands):
+    ans = []
+    for i in commands:
+        new_arr = array[i[0]-1:i[1]]
+        new_arr.sort()
+        ans.append(new_arr[i[2]-1])
+    return ans
+# 이번엔 별로 어렵지 않게 풀었음.
+
 # 다른사람의 풀이
 
 
