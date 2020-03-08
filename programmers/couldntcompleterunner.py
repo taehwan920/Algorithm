@@ -20,3 +20,16 @@ def solution(participant, completion):
 
 # 시간 복잡도에 신경 쓸것.
 # zip이나 sort등 평소 잘 안쓰던것들 익숙해질것
+
+
+# 다시 풀어본 것
+
+def solution_2(participant, completion):
+    participant.sort()
+    completion.sort()
+    completion.append(" ")
+    for i in len(completion):
+        if participant[i] != completion[i]:
+            return participant[i]
+
+    # completion.append(" ")행을 삭제하고 반복문 밑에다 return participant[-1]을 해도 된다.
