@@ -33,3 +33,19 @@ def solution_2(participant, completion):
             return participant[i]
 
     # completion.append(" ")행을 삭제하고 반복문 밑에다 return participant[-1]을 해도 된다.
+
+
+def solution3(participant, completion):
+    answer = ''
+    temp = 0
+    dic = {}
+    for part in participant:
+        dic[hash(part)] = part
+        temp += int(hash(part))
+    for com in completion:
+        temp -= hash(com)
+    answer = dic[temp]
+
+    return answer
+
+# 해시 활용
