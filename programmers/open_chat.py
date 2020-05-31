@@ -24,3 +24,4 @@ def solution(record):
         if t_log == "Leave":
             result.append(f"{logs[temp]['name']}님이 나갔습니다.")
     return result
+# 간단한 구현문제.
