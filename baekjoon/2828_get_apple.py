@@ -21,3 +21,4 @@ for i in range(int(input())):
         cnt += dist
 
 print(cnt)
+# 그리디보단 구현문제에 가까움
