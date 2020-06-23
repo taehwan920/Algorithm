@@ -47,3 +47,43 @@ def solution(m, n, board):
             break
         bomb()
     return game.cnt
+
+
+# 이 밑으로는 다시 푼 것
+
+class game1:
+    nominee = set()
+    cnt = 0
+    board = []
+
+
+def search1(i, j):
+    if j >= len(game1.board[i+1]) - 1:
+        return
+
+    if game1.board[i][j] == game1.board[i+1][j] == game1.board[i][j+1] == game1.board[i+1][j+1]:
+        for y, x in [(i, j), (i+1, j), (i, j+1), (i+1, j+1)]:
+            game1.nominee.add((y, x))
+
+
+def bomb1():
+    for y, x in reversed(sorted(game1.nominee)):
+        game1.board[y].pop(x)
+        game1.cnt += 1
+    game1.nominee = set()
+
+
+def solution1(m, n, board):
+    game1.board = [[board[i][j] for i in reversed(range(m))] for j in range(n)]
+
+    while True:
+        for i in range(len(game1.board)-1):
+            for j in range(len(game1.board[i])-1):
+                search1(i, j)
+        if game1.nominee:
+            bomb1()
+        else:
+            break
+    return game1.cnt
+
+#
