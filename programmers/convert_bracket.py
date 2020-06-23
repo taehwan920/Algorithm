@@ -42,3 +42,48 @@ def bal(string):
             return idx
 
 # 문제에서 상세히 알려주는대로 따라하기만 하면 되는 문제였다. 관건은 균형잡힌 문자열을 쪼개는 위치를 구하는것.
+
+
+def solution1(p):
+    if not p:
+        return p
+    bal = balanced(p)
+    u, v = p[:bal+1], p[bal+1:]
+
+    return u + solution(v) if is_right(u) else '(' + solution(v) + ')' + turn_over(u[1:-1])
+
+
+def turn_over(st):
+    result = ''
+    for let in st:
+        if let == "(":
+            result += ')'
+        else:
+            result += '('
+    return result
+
+
+def balanced(st):
+    cnt = 0
+    for idx, bracket in enumerate(st):
+        if bracket == '(':
+            cnt += 1
+        else:
+            cnt -= 1
+        if cnt == 0:
+            return idx
+
+
+def is_right1(st):
+    stack = []
+    for let in st:
+        if let == "(":
+            stack.append(let)
+        else:
+            if stack and stack[-1] == "(":
+                stack.pop()
+            else:
+                return False
+    return True
+
+# 다시 한 번 풀었음. 구현만 하면되는 문제. 문제만 잘읽어도 되는데 전에 풀었던거 기억해서 풀어낸답시고 이상하게 풀어서 또 틀렸었다.
