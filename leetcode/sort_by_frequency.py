@@ -1,3 +1,6 @@
+import heapq
+
+
 class Solution:
     def frequencySort(self, s: str) -> str:
         s = list(s)
@@ -14,4 +17,22 @@ class Solution:
         for item in items:
             result += item[1] * item[0]
 
+        return result
+
+# 힙 이용
+
+
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        s = list(s)
+        chrs = list(set(s))
+        cnt = []
+
+        for c in chrs:
+            heapq.heappush(cnt, (-s.count(c), c))
+
+        result = ''
+        while cnt:
+            num, c = heapq.heappop(cnt)
+            result += c * -num
         return result
