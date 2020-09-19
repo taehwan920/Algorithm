@@ -11,7 +11,5 @@ class Solution:
         result = []
         for i in range(k):
             result.append(heapq.heappop(sample)[1])
-            if i == k - 1:
-                break
 
         return result
