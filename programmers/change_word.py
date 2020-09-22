@@ -57,3 +57,42 @@ def solution1(begin, target, words):
     return 0
 
 # 다시 작성한 코드. 현재의 단어랑 한글자만 차이나는단어 + 아직 간 적 없는 단어에 한해서 q에 넣어 bfs를 돌렸다.
+
+
+def solution(begin, target, words):
+    memory = {}
+
+    for word in words:
+        for i, c in enumerate(word):
+            key = word[:i] + '$' + word[i+1:]
+            if not memory.get(key):
+                memory[key] = []
+            memory[key].append(word)
+
+    parents = {begin: None}
+    frontier = [begin]
+    step = 0
+
+    while frontier:
+        _next = []
+        for word in frontier:
+            neighbors = []
+            for i, e in enumerate(word):
+                key = word[:i] + '$' + word[i+1:]
+                if key in memory:
+                    neighbors += memory[key]
+
+            for neighbor in neighbors:
+                if neighbor == target:
+                    return step + 1
+
+                if neighbor not in parents:
+                    parents[neighbor] = word
+                    _next.append(neighbor)
+
+        frontier = _next
+        step += 1
+
+    return 0
+# dict 자료형을 적극적으로 활용한 풀이방법. 소요 시간도 굉장히 짧다.
+# 각 단어들을 $을 활용해 한글자씩 비운 걸 dict로 모아서 저장하는 요령을 숙지해두자
