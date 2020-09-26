@@ -1,3 +1,4 @@
+import sys
 n, m = map(int, input().split())
 trees = list(map(int, input().split()))
 trees.sort()
@@ -21,3 +22,28 @@ while start <= end:
     else:
         end = mid - 1
 print(result)
+
+input = sys.stdin.readline
+
+n, m = map(int, input().split())
+trees = list(map(int, input().split()))
+
+start = 0
+end = max(trees)
+
+result = 0
+while start <= end:
+    mid = (start + end) // 2
+    temp = 0
+    for tree in trees:
+        if tree > mid:
+            temp += tree - mid
+
+    if m <= temp:
+        start = mid + 1
+        result = mid
+    else:
+        end = mid - 1
+
+print(result)
+# 다시 풀었음. start와 end값을 변화시키는 조건문을 잘 작성하지 못해 고생했음.
